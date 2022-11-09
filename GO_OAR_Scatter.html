@@ -29,8 +29,8 @@
     <script>
         // set the dimensions and margins of the graph
         var margin = {top: 100, right: 180, bottom: 90, left: 80},
-            width = 1300 - margin.left - margin.right,
-            height = 1300 - margin.top - margin.bottom;
+            width = 800 - margin.left - margin.right,
+            height = 750 - margin.top - margin.bottom;
         // append the svg object to the body of the page
         var svg = d3.select("#my_dataviz")
         .append("svg")
@@ -137,28 +137,28 @@
                 .attr("cy", function (d) { return y(d.weapon_owned_per_100); } )
 
             // Add one dot in the legend for each name.
-            svg.selectAll("mydots")
-            .data(state_names)
-            .enter()
-            .append("circle")
-                .attr("cx", 100)
-                .attr("cy", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-                .attr("r", 10)
-                .style("fill", function(d){ return color(d)})
-                .attr("transform", "translate(965,-180)")
+            // svg.selectAll("mydots")
+            // .data(state_names)
+            // .enter()
+            // .append("circle")
+            //     .attr("cx", 100)
+            //     .attr("cy", function(d,i){ return 100 + i*15}) // 100 is where the first dot appears. 25 is the distance between dots
+            //     .attr("r", 5)
+            //     .style("fill", function(d){ return color(d)})
+            //     .attr("transform", "translate(0,-180)")
 
             // Add one dot in the legend for each name.
-            svg.selectAll("mylabels")
-            .data(state_names)
-            .enter()
-            .append("text")
-                .style("font-size", "15px")
-                .attr("x", 120)
-                .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-                .text(function(d){ return d})
-                .attr("text-anchor", "left")
-                .style("alignment-baseline", "middle")
-                .attr("transform", "translate(965,-180)")
+            // svg.selectAll("mylabels")
+            // .data(state_names)
+            // .enter()
+            // .append("text")
+            //     .style("font-size", "15px")
+            //     .attr("x", 120)
+            //     .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+            //     .text(function(d){ return d})
+            //     .attr("text-anchor", "left")
+            //     .style("alignment-baseline", "middle")
+            //     .attr("transform", "translate(0,-180)")
             
             var leastSquaresCoeff = leastSquares(assault_rates, gun_ownerships);
             
@@ -191,14 +191,14 @@
                     decimalFormat(leastSquaresCoeff[1]))
                 .attr("class", "text-label")
                 .attr("x", function(d) {return x(x2) - 60;})
-                .attr("y", function(d) {return y(y2) - 30;});
+                .attr("y", function(d) {return y(y2) - 80;});
             
             // display r-square on the chart
             svg.append("text")
                 .text("r-sq: " + decimalFormat(leastSquaresCoeff[2]))
                 .attr("class", "text-label")
                 .attr("x", function(d) {return x(x2) - 60;})
-                .attr("y", function(d) {return y(y2) - 10;});
+                .attr("y", function(d) {return y(y2) - 60;});
         });
 
         // Add title to heatmap
@@ -214,7 +214,7 @@
                 .attr("text-anchor", "end")
                 .attr("transform", "rotate(-90)")
                 .attr("y", -margin.left+30)
-                .attr("x", -margin.top-360)
+                .attr("x", -margin.top-150)
                 .style("font-size", "15px")
                 .text("Firearms Per 100");
         
