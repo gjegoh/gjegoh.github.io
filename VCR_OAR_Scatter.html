@@ -28,7 +28,7 @@
     <div id="my_dataviz"></div> 
     <script>
         // set the dimensions and margins of the graph
-        var margin = {top: 100, right: 180, bottom: 90, left: 80},
+        var margin = {top: 100, right: 180, bottom: 90, left: 160},
             width = 800 - margin.left - margin.right,
             height = 750 - margin.top - margin.bottom;
         // append the svg object to the body of the page
@@ -213,8 +213,8 @@
         svg.append("text")
                 .attr("text-anchor", "end")
                 .attr("transform", "rotate(-90)")
-                .attr("y", -margin.left+30)
-                .attr("x", -margin.top-150)
+                .attr("y", -margin.left+120)
+                .attr("x", -margin.top-110)
                 .style("font-size", "15px")
                 .text("Violent Crime Rate Per 100000");
         
